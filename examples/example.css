@@ -1,0 +1,5 @@
+.my-map { 
+    width:512px; height:512px; 
+    margin:20px 60px; 
+    border:1px solid blue;
+}

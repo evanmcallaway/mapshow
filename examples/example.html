@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Animation</title>
+    <link rel="stylesheet" href="http://openlayers.org/en/v3.15.1/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="example.css">
+    <link rel="stylesheet" href="../mapshow.css">
+    <script src="http://openlayers.org/en/v3.15.1/build/ol.js"></script>
+    <script src="../mapshow.js"></script>
+    <script>
+      var boston = ol.proj.fromLonLat([-71.0589, 42.3601]);
+      var london = ol.proj.fromLonLat([-0.12755, 51.507222]);
+      var moscow = ol.proj.fromLonLat([37.6178, 55.7517]);
+      var istanbul = ol.proj.fromLonLat([28.9744, 41.0128]);
+      var rome = ol.proj.fromLonLat([12.5, 41.9]);
+      var bern = ol.proj.fromLonLat([7.4458, 46.95]);
+      var madrid = ol.proj.fromLonLat([-3.683333, 40.4]);
+      var trip = [
+          { name: 'London', destination: london, style: 'fly', duration: 10000, wait: 3000, media: 'http://wannasmile.com/wp-content/uploads/2010/01/silly.jpg' },
+          { name: 'Moscow', destination: moscow, style: 'pan', duration: 5000, wait: 3000, media: 'https://c4.staticflickr.com/2/1327/782600579_ef3eb55b39_b.jpg' },
+          { name: 'Istanbul', destination: istanbul, style: 'spin', duration: 5000, wait: 4000, media: 'https://pbs.twimg.com/profile_images/378800000285914163/173fea8e18e7e7a8d63ce7393e0c6ef4.jpeg' },
+          { name: 'Rome', destination: rome, style: 'bounce', duration: 5000, wait: 3000, media: 'http://petapixel.com/assets/uploads/2012/08/bulldog0_mini.jpg' },
+          { name: 'Madrid', destination: madrid, style: 'pan', duration: 5000, wait: 5500, media: 'http://wallpaperhdbase.com/wp-content/gallery/pictures-of-silly-cats/silly-funny-fighting-cat-dance.jpg' },
+          { name: 'Boston', destination: boston, style: 'fly', duration: 10000}
+      ];
+
+      window.onload = function(e) {
+          var mapShow = new MapShow("my-map", trip);
+          document.getElementById("start-trip").onclick = function() {
+             mapShow.startTrip();
+          };
+      }
+    </script>
+  </head>
+  <body>
+    <div class="my-map" id="my-map">
+    </div>
+    <button id="start-trip">Start Trip</button>
+  </body>
+</html>
